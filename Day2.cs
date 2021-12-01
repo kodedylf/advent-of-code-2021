@@ -7,18 +7,8 @@ namespace advent_of_code_2021
     {
         internal void Run()
         {
-            var depths = Data.Split("\n").Select(d => int.Parse(d)).ToArray();
-            var sums = SumOfThreeNextNumbers(depths).ToArray();               
-            int increases = 0;
-            for (int i = 1; i < sums.Count(); i++)
-                if (sums[i-1] < sums[i])
-                    increases++;
+            var increases = Data.Split("\n").Select(d => int.Parse(d)).SlidingWindow(3).Select(w => w.Sum()).CombinePairwise((a, b) => b > a).Where(i => i == true).Count();
             System.Console.WriteLine(increases);
-        }
-
-        private IEnumerable<int> SumOfThreeNextNumbers(int[] data) {
-            for (int i = 0; i < data.Count() - 2; i++)
-                yield return data[i] + data[i+1] + data[i+2];
         }
 
         private string Data = @"124

@@ -6,11 +6,7 @@ namespace advent_of_code_2021
     {
         internal void Run()
         {
-            var depths = Data.Split("\n").Select(d => int.Parse(d)).ToArray();
-            int increases = 0;
-            for (int i = 1; i < depths.Count(); i++)
-                if (depths[i-1] < depths[i])
-                    increases++;
+            var increases = Data.Split("\n").Select(d => int.Parse(d)).CombinePairwise((a, b) => b > a).Where(x => x == true).Count();
             System.Console.WriteLine(increases);
         }
 
