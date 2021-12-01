@@ -23,16 +23,19 @@ public static class Extensions
     {
         var enumerator = data.GetEnumerator();
         var window = new List<T>();
-        for (int i = 0; i < count; i++) {
-            window.Add(enumerator.Current);
+        for (int i = 0; i < count; i++)
+        {
             if (!enumerator.MoveNext())
                 yield break;
+            window.Add(enumerator.Current);
         }
+        yield return window;
 
-        do {
-            yield return window;
+        while (enumerator.MoveNext())
+        {
             window = new List<T>(window.Skip(1));
             window.Add(enumerator.Current);
-        } while(enumerator.MoveNext());
+            yield return window;
+        }
     }
 }
