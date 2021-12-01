@@ -4,9 +4,15 @@ namespace advent_of_code_2021
 {
     internal class Day1
     {
-        internal void Run()
+        internal void Part1()
         {
             var increases = Data.Split("\n").Select(d => int.Parse(d)).CombinePairwise((a, b) => b > a).Where(x => x == true).Count();
+            System.Console.WriteLine(increases);
+        }
+
+        internal void Part2()
+        {
+            var increases = Data.Split("\n").Select(d => int.Parse(d)).SlidingWindow(3).Select(w => w.Sum()).CombinePairwise((a, b) => b > a).Where(i => i == true).Count();
             System.Console.WriteLine(increases);
         }
 
