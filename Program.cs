@@ -23,9 +23,13 @@ namespace advent_of_code_2021
             // day4.Part1();
             // day4.Part2();
 
-            var day5 = new Day5();
+            // var day5 = new Day5();
             // day5.Part1();
-            day5.Part2();
+            // day5.Part2();
+
+            var day6 = new Day6();
+            // day6.Part1();
+            day6.Part2();
         }
     }
 }
