@@ -38,25 +38,25 @@ namespace advent_of_code_2021
 
             // signal deduced from number of segments
             // 1
-            var s = string.Concat(remainingSignals.Single(s => s.Length == 2).OrderBy(l => l));
+            var s = string.Concat(remainingSignals.Single(s => s.Length == 2));
             digitToSignal[1] = s;
             signalToDigit[s] = 1;
             remainingSignals.Remove(s);
 
             // 4
-            s = string.Concat(remainingSignals.Single(s => s.Length == 4).OrderBy(l => l));
+            s = string.Concat(remainingSignals.Single(s => s.Length == 4));
             digitToSignal[4] = s;
             signalToDigit[s] = 4;
             remainingSignals.Remove(s);
 
             // 7
-            s = string.Concat(remainingSignals.Single(s => s.Length == 3).OrderBy(l => l));
+            s = string.Concat(remainingSignals.Single(s => s.Length == 3));
             digitToSignal[7] = s;
             signalToDigit[s] = 7;
             remainingSignals.Remove(s);
 
             // 8
-            s = string.Concat(remainingSignals.Single(s => s.Length == 7).OrderBy(l => l));
+            s = string.Concat(remainingSignals.Single(s => s.Length == 7));
             digitToSignal[8] = s;
             signalToDigit[s] = 8;
             remainingSignals.Remove(s);
