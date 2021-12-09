@@ -28,12 +28,7 @@ namespace advent_of_code_2021
 
         internal void Part2()
         {
-            var basins = new List<List<(int x, int y)>>();
-            foreach (var minimum in minima) {
-                basins.Add(FindBasin(minimum));
-            }
-            var result = 1;
-            basins.OrderByDescending(b => b.Count()).Take(3).ToList().ForEach(v => result *= v.Count());
+            var result = minima.Select(m => FindBasin(m)).OrderByDescending(b => b.Count()).Take(3).Aggregate(1, (r, b) => r * b.Count());
             System.Console.WriteLine(result);
         }
 
