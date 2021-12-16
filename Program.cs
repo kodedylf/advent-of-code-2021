@@ -7,7 +7,7 @@ namespace advent_of_code_2021
     {
         static void Main(string[] args)
         {
-            var day = new Day11();
+            var day = new Day12();
             day.Part1();
             day.Part2();
         }
